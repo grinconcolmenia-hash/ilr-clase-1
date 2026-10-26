@@ -1,0 +1,280 @@
+/* ============================================================
+   COLMEN IA — Sistema de CLASES
+   class-system.css
+   ------------------------------------------------------------
+   Componentes visuales compartidos por los decks de clases
+   (identidad "Claude para Equipos Comerciales").
+   Extraído de clases/comatel/clase1.html.
+
+   Tokens de color/tipografía y @font-face viven en
+   colors_and_type.css — enlazar ese ANTES que este.
+
+   Variables cortas que usan los decks (compatibles con clase1):
+   ============================================================ */
+:root {
+  --green:       #12f280;
+  --dark-green:  #09562c;
+  --blue:        #0f3bfe;
+  --near-black:  #151716;
+  --white:       #ffffff;
+}
+
+/* ── BASE DE SLIDE ───────────────────────────────────────────
+   Cada slide es una <section> de 1920×1080 dentro de <deck-stage>. */
+section {
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Fondo foto-hero full-bleed (generado con Higgsfield por clase).
+   Uso: <div class="bg" style="background-image:url('assets/xxx.jpg')"></div> */
+.bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+}
+
+/* ── STAMPS DE MARCA ─────────────────────────────────────────
+   Logo arriba-derecha, wordmark abajo-izquierda. Opcionales:
+   portada/divisores/cierre suelen ir sin stamp. */
+.logo-stamp {
+  position: absolute;
+  top: 52px; right: 60px;
+  height: 64px;
+  z-index: 10;
+}
+.logo-stamp-left {
+  position: absolute;
+  top: 52px; left: 80px;
+  height: 64px;
+  z-index: 10;
+}
+.wordmark {
+  position: absolute;
+  bottom: 40px; left: 80px;
+  font-family: "Anta", sans-serif;
+  font-size: 22px;
+  letter-spacing: 0.08em;
+  opacity: 0.5;
+  z-index: 10;
+}
+
+/* ── WRAPPER DE CONTENIDO ────────────────────────────────────
+   Centra el contenido; .top lo alinea arriba. */
+.content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 100px 120px;
+  z-index: 5;
+}
+.content.top { justify-content: flex-start; padding-top: 160px; }
+
+/* ── TIPOGRAFÍA DE SLIDE ─────────────────────────────────────
+   Titulares Anta. .dark sobre fondo claro, .green para keyword. */
+.title-anta {
+  font-family: "Anta", sans-serif;
+  font-size: 80px;
+  line-height: 1.05;
+  letter-spacing: 0.02em;
+  color: var(--white);
+}
+.title-anta.dark  { color: var(--near-black); }
+.title-anta.green { color: var(--green); }
+
+.title-anta-lg {
+  font-family: "Anta", sans-serif;
+  font-size: 108px;
+  line-height: 1.0;
+  letter-spacing: 0.02em;
+  color: var(--white);
+}
+
+/* Subtítulo / tagline en Tilt Neon. */
+.subtitle-neon {
+  font-family: "Tilt Neon", sans-serif;
+  font-size: 48px;
+  color: var(--green);
+  line-height: 1.2;
+  margin-top: 28px;
+}
+.subtitle-neon.white { color: var(--white); opacity: 0.85; }
+.subtitle-neon.dark  { color: var(--near-black); opacity: 0.7; }
+
+/* Eyebrow / kicker en mayúsculas. .dark sobre fondo claro. */
+.label-tag {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 26px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 20px;
+}
+.label-tag.dark { color: var(--dark-green); }
+
+/* Cuerpo de texto. .dark sobre fondo claro. */
+.body-text {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 34px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.88);
+}
+.body-text.dark { color: rgba(21,23,22,0.78); }
+
+/* ── CHIP EYEBROW (ELEMENTO FIRMA) ───────────────────────────
+   Pill con borde verde neón + punto que brilla. Es LA firma
+   de los decks de clases. Variante .blue disponible.
+   Uso:
+     <div class="eyebrow-chip"><span class="dot"></span>SETUP · ANTES DE EMPEZAR</div> */
+.eyebrow-chip {
+  display: inline-flex;
+  align-self: flex-start;
+  align-items: center;
+  gap: 12px;
+  border: 1.5px solid rgba(18,242,128,0.45);
+  background: rgba(18,242,128,0.10);
+  border-radius: 9999px;
+  padding: 9px 22px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--green);
+}
+.eyebrow-chip .dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 0 0 rgba(18,242,128,0.7);
+  animation: chip-pulse 2s infinite;
+  flex-shrink: 0;
+}
+.eyebrow-chip.blue {
+  border-color: rgba(15,59,254,0.4);
+  background: rgba(15,59,254,0.08);
+  color: var(--blue);
+}
+.eyebrow-chip.blue .dot {
+  background: var(--blue);
+  box-shadow: 0 0 0 0 rgba(15,59,254,0.7);
+  animation-name: chip-pulse-blue;
+}
+@keyframes chip-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(18,242,128,0.7); }
+  70%  { box-shadow: 0 0 0 12px rgba(18,242,128,0); }
+  100% { box-shadow: 0 0 0 0 rgba(18,242,128,0); }
+}
+@keyframes chip-pulse-blue {
+  0%   { box-shadow: 0 0 0 0 rgba(15,59,254,0.7); }
+  70%  { box-shadow: 0 0 0 12px rgba(15,59,254,0); }
+  100% { box-shadow: 0 0 0 0 rgba(15,59,254,0); }
+}
+
+/* ── PILL / CHIP DE ETIQUETA ─────────────────────────────────
+   Chips de tópico (Memoria, Herramientas…). .blue disponible. */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(9,86,44,0.10);
+  border: 1.5px solid rgba(9,86,44,0.25);
+  border-radius: 40px;
+  padding: 12px 28px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+  color: var(--dark-green);
+}
+.pill.blue {
+  background: rgba(15,59,254,0.08);
+  border-color: rgba(15,59,254,0.2);
+  color: var(--blue);
+}
+.pill-row { display: flex; flex-wrap: wrap; gap: 14px; }
+
+/* ── CARDS BASE ──────────────────────────────────────────────
+   Card clara estándar. .card-bar añade barra superior gradient. */
+.card {
+  position: relative;
+  background: #fff;
+  border: 1.5px solid rgba(9,86,44,0.12);
+  border-radius: 20px;
+  padding: 44px 36px;
+  box-shadow: 0 4px 32px rgba(9,86,44,0.10);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.card.dark {
+  background: var(--near-black);
+  border-color: rgba(18,242,128,0.20);
+}
+.card-bar {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 5px;
+  background: linear-gradient(135deg, #0f3bfe, #12f280);
+}
+
+/* Card glassy sobre fondo oscuro (blur). */
+.card-glass {
+  background: rgba(255,255,255,0.07);
+  border: 1.5px solid rgba(18,242,128,0.30);
+  border-radius: 20px;
+  padding: 44px 40px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* ── NÚMERO FANTASMA GIGANTE ─────────────────────────────────
+   Numeral Anta translúcido detrás del contenido de una card. */
+.ghost-num {
+  position: absolute;
+  top: 12px; right: 24px;
+  font-family: "Anta", sans-serif;
+  font-size: 84px;
+  line-height: 1;
+  color: rgba(9,86,44,0.06);
+  user-select: none;
+}
+
+/* ── STAT NEÓN GRANDE ────────────────────────────────────────
+   Número/dato gigante centrado para divisores de ejercicio. */
+.stat-neon {
+  font-family: "Anta", sans-serif;
+  font-size: 220px;
+  color: var(--white);
+  line-height: 0.9;
+}
+.stat-neon span { color: var(--green); }
+
+/* ── ICON BOX ────────────────────────────────────────────────
+   Caja cuadrada para íconos de línea (stroke 2px). */
+.icon-box {
+  width: 56px; height: 56px;
+  border-radius: 15px;
+  background: linear-gradient(140deg, rgba(15,59,254,0.14), rgba(18,242,128,0.20));
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.icon-box svg {
+  width: 30px; height: 30px;
+  fill: none; stroke: var(--dark-green);
+  stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+}
+
+/* ── MARCO DE IMAGEN HERO ────────────────────────────────────
+   Contenedor con sombra para imágenes generadas. */
+.img-frame {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 12px 60px rgba(0,0,0,0.18);
+}
+.img-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
