@@ -214,6 +214,22 @@
   .mini-step .n { font-family:"Anta",sans-serif; font-size:19px; color:var(--dark-green); background:rgba(18,242,128,0.18); border:1.5px solid rgba(9,86,44,0.3); width:42px; height:42px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
   .mini-step b { color:var(--near-black); }
 
+  /* ── Introducción a Claude ── */
+  .cz-grid { display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+  .cz { position:relative; background:#fff; border:1.5px solid rgba(9,86,44,0.12); border-radius:20px; padding:28px 30px; box-shadow:0 10px 32px rgba(9,40,24,0.08); }
+  .cz.wide { grid-column:span 2; display:flex; align-items:center; gap:26px; }
+  .cz.dark { background:linear-gradient(150deg,#0e3a22,#0a1c12); border-color:rgba(18,242,128,0.45); box-shadow:0 16px 48px rgba(18,242,128,0.2); }
+  .cz-ico { width:60px; height:60px; border-radius:16px; background:linear-gradient(140deg,rgba(15,59,254,0.14),rgba(18,242,128,0.2)); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .cz-ico svg { width:32px; height:32px; fill:none; stroke:var(--dark-green); stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+  .cz.dark .cz-ico { background:rgba(18,242,128,0.16); border:1.5px solid rgba(18,242,128,0.45); }
+  .cz.dark .cz-ico svg { stroke:var(--green); }
+  .cz-t { font-family:"Anta",sans-serif; font-size:31px; color:var(--near-black); line-height:1.1; margin-top:16px; }
+  .cz.wide .cz-t { margin-top:0; }
+  .cz.dark .cz-t { color:#fff; }
+  .cz-d { font-family:"Poppins",sans-serif; font-size:22px; color:rgba(21,23,22,0.64); line-height:1.45; margin-top:8px; }
+  .cz.dark .cz-d { color:rgba(255,255,255,0.72); }
+  .cz-tag { position:absolute; top:22px; right:22px; font-family:"Poppins",sans-serif; font-weight:700; font-size:13px; letter-spacing:0.12em; text-transform:uppercase; color:var(--blue); background:rgba(15,59,254,0.08); border:1px solid rgba(15,59,254,0.25); padding:5px 12px; border-radius:9999px; }
+
   /* ── Skill pipeline ── */
   .xl { background:#fff; border:1.5px solid rgba(9,86,44,0.12); border-radius:16px; box-shadow:0 10px 30px rgba(9,40,24,0.08); overflow:hidden; }
   .xl-bar { display:flex; align-items:center; gap:10px; background:#1d6f42; padding:10px 16px; font-family:"Poppins",sans-serif; font-weight:600; font-size:16px; color:#fff; }
@@ -267,6 +283,10 @@
   .prod .p { font-size:17px; color:#999; text-decoration:line-through; margin-top:4px; }
   .prod .p2 { font-size:24px; font-weight:700; color:#1a7a3e; }
   .prod .off { position:absolute; top:18px; left:18px; background:#e53935; color:#fff; font-size:13px; font-weight:700; padding:3px 9px; border-radius:6px; }
+  .prod .ph.steel { background:repeating-linear-gradient(0deg,#cfd4d8 0 10px,#b9c0c6 10px 20px); }
+  .prod .ph.screw { background:radial-gradient(circle,#8d969d 0 3px,transparent 4px) 0 0/22px 22px, #eef0f2; }
+  .prod .av { font-size:15px; font-weight:600; color:#1a7a3e; margin-top:6px; }
+  .prod .av.no { color:#b25b00; }
   .prod.seen { outline:3px solid rgba(15,59,254,0.55); outline-offset:-1px; }
   .side { background:#0c1410; border-left:1.5px solid rgba(18,242,128,0.25); padding:22px 22px; display:flex; flex-direction:column; gap:12px; }
   .side-h { display:flex; align-items:center; gap:10px; font-family:"Poppins",sans-serif; font-weight:700; font-size:16px; color:#fff; }
@@ -300,6 +320,12 @@
   .se-d { font-family:"Poppins",sans-serif; font-size:24px; color:rgba(21,23,22,0.64); line-height:1.45; }
   .se-arrow { display:flex; align-items:center; justify-content:center; flex-shrink:0; }
   .se-arrow svg { width:40px; height:40px; fill:none; stroke:var(--green); stroke-width:2.6; stroke-linecap:round; stroke-linejoin:round; }
+  .se-flow.clean .se-card { justify-content:center; padding:44px 38px; }
+  .se-flow.clean .se-ico { width:84px; height:84px; border-radius:20px; margin-bottom:30px; }
+  .se-flow.clean .se-ico svg { width:44px; height:44px; }
+  .se-flow.clean .se-t { font-size:38px; }
+  .se-flow.clean .se-d { font-size:27px; }
+  .se-flow.clean .se-ghost { font-size:120px; }
   .sched { margin-top:auto; background:#0c1410; border-radius:16px; padding:18px 20px; border:1px solid rgba(18,242,128,0.3); }
   .sched .row { display:flex; justify-content:space-between; align-items:center; font-family:"Poppins",sans-serif; font-size:21px; color:rgba(255,255,255,0.6); padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.08); }
   .sched .row:last-child { border-bottom:none; }
@@ -498,12 +524,12 @@
         <span><i>1</i>¿Qué necesito?</span><em>→</em><span><i>2</i>¿Qué no sabe la IA de ILR?</span><em>→</em><span><i>3</i>¿Cómo quiero la respuesta?</span>
       </div>
       <div style="display:grid; grid-template-columns:repeat(3,1fr); grid-template-rows:1fr 1fr; gap:22px; margin-top:24px; flex:1;">
-        <div class="pc"><div class="pc-ghost">01</div><div class="pc-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.2"/><line x1="12" y1="1.5" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22.5"/></svg></div><div class="pc-t">INSTRUCCIÓN CLARA</div><div class="pc-d">Qué necesita, sin rodeos.</div><div class="pc-ex">«Arma la cotización de esta adecuación, por capítulos de obra.»</div></div>
+        <div class="pc"><div class="pc-ghost">01</div><div class="pc-ico"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div class="pc-t">ROL</div><div class="pc-d">El papel que cumple la IA.</div><div class="pc-ex">«Eres un presupuestador de obras de adecuación de oficinas.»</div></div>
         <div class="pc"><div class="pc-ghost">02</div><div class="pc-ico"><svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div><div class="pc-t">CONTEXTO</div><div class="pc-d">Lo que la IA no sabe de su caso.</div><div class="pc-ex">«Somos ILR, adecuamos oficinas en Bogotá. Son 120 m² en obra gris.»</div></div>
-        <div class="pc"><div class="pc-ghost">03</div><div class="pc-ico"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div class="pc-t">ROL</div><div class="pc-d">El papel que cumple la IA.</div><div class="pc-ex">«Eres un presupuestador de obras de adecuación de oficinas.»</div></div>
+        <div class="pc"><div class="pc-ghost">03</div><div class="pc-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.2"/><line x1="12" y1="1.5" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22.5"/></svg></div><div class="pc-t">INSTRUCCIÓN</div><div class="pc-d">Qué necesita, sin rodeos.</div><div class="pc-ex">«Arma la cotización de esta adecuación, por capítulos de obra.»</div></div>
         <div class="pc"><div class="pc-ghost">04</div><div class="pc-ico"><svg viewBox="0 0 24 24"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></svg></div><div class="pc-t">PASO A PASO</div><div class="pc-d">Que razone en orden antes de concluir.</div><div class="pc-ex">«Calcula capítulo por capítulo antes de dar el total.»</div></div>
-        <div class="pc"><div class="pc-ghost">05</div><div class="pc-ico"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></div><div class="pc-t">EJEMPLOS</div><div class="pc-d">Muéstrele cómo se ve un buen resultado.</div><div class="pc-ex">«Usa como modelo la cotización del proyecto anterior.»</div></div>
-        <div class="pc"><div class="pc-ghost">06</div><div class="pc-ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div><div class="pc-t">FORMATO</div><div class="pc-d">Cómo quiere la respuesta.</div><div class="pc-ex">«Tabla: cantidad, unidad, valor unitario, total, AIU e IVA.»</div></div>
+        <div class="pc"><div class="pc-ghost">05</div><div class="pc-ico"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></div><div class="pc-t">EJEMPLO</div><div class="pc-d">Muéstrele cómo se ve un buen resultado.</div><div class="pc-ex">«Usa como modelo la cotización del proyecto anterior.»</div></div>
+        <div class="pc"><div class="pc-ghost">06</div><div class="pc-ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div><div class="pc-t">FORMATO DE SALIDA</div><div class="pc-d">Cómo quiere la respuesta.</div><div class="pc-ex">«Tabla: cantidad, unidad, valor unitario, total, AIU e IVA.»</div></div>
       </div>
     </div>
   </section>
@@ -531,7 +557,7 @@
               <div class="ex-part"><b>Instrucción</b><p>Arma la cotización: muros en drywall, piso laminado, cielo raso y 12 puntos eléctricos.</p></div>
               <div class="ex-part"><b>Paso a paso</b><p>Calcula capítulo por capítulo antes del total. Si falta un dato, pregúntame antes de inventarlo.</p></div>
               <div class="ex-part"><b>Ejemplo</b><p>Sigue el modelo de la cotización adjunta del proyecto anterior.</p></div>
-              <div class="ex-part"><b>Formato</b><p>Tabla por capítulos con AIU e IVA al final, y un resumen de tres líneas para el cliente.</p></div>
+              <div class="ex-part"><b>Formato de salida</b><p>Tabla por capítulos con AIU e IVA al final, y un resumen de tres líneas para el cliente.</p></div>
             </div>
             <div class="flip-hint good"><svg viewBox="0 0 24 24"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg> Clic para volver</div>
           </div>
@@ -544,47 +570,70 @@
   <section data-label="10 Ejercicio de prompting" id="s9b">
     <div class="bg" style="background-image:url('assets/27305c4d-0438-4220-8cac-38d08a9cf427.jpg')"></div>
     <div style="position:absolute; inset:0; background:radial-gradient(50% 70% at 90% 92%, rgba(18,242,128,0.14), transparent 55%);"></div>
-    <div style="position:absolute; inset:0; padding:74px 100px 66px; display:flex; flex-direction:column;">
-      <div class="label-tag" style="color:var(--blue);">Práctica · pensamiento sistemático + prompting</div>
-      <div class="title-anta dark" style="font-size:60px;"><span style="color:var(--dark-green)">Ejercicio</span></div>
-      <div style="font-family:'Poppins',sans-serif; font-size:26px; color:rgba(21,23,22,0.6); margin-top:8px;">Tome un trabajo real de su semana y conviértalo en un pedido que Claude entienda a la primera.</div>
-      <div class="se-flow">
+    <div style="position:absolute; inset:0; padding:96px 110px 110px; display:flex; flex-direction:column;">
+      <div class="title-anta dark" style="font-size:96px; line-height:1;"><span style="color:var(--dark-green)">EJERCICIO</span></div>
+      <div class="se-flow clean" style="margin-top:60px;">
         <div class="se-card">
           <div class="se-ghost">01</div>
           <div class="se-ico"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
           <div class="se-t">Escoja la tarea</div>
-          <div class="se-d">La que ganó la votación, o una suya: una cotización, un cuadro de proveedores, un correo.</div>
+          <div class="se-d">Una real de su semana.</div>
         </div>
         <div class="se-arrow"><svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg></div>
         <div class="se-card">
           <div class="se-ghost">02</div>
           <div class="se-ico"><svg viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></div>
           <div class="se-t">Pártala en pasos</div>
-          <div class="se-d">Escriba en orden cómo la hace usted hoy, con sus decisiones: «si el precio no incluye IVA, súmelo».</div>
+          <div class="se-d">Cómo la hace usted hoy.</div>
         </div>
         <div class="se-arrow"><svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg></div>
         <div class="se-card hl">
           <div class="se-ghost">03</div>
           <div class="se-ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div>
           <div class="se-t">Arme el prompt</div>
-          <div class="se-d">Empáquelo en las 6 piezas: instrucción, contexto, rol, paso a paso, ejemplo y formato. Péguelo en Claude.</div>
+          <div class="se-d">Con las 6 piezas.</div>
         </div>
         <div class="se-arrow"><svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg></div>
         <div class="se-card">
           <div class="se-ghost">04</div>
           <div class="se-ico"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
           <div class="se-t">Compare</div>
-          <div class="se-d">Pida lo mismo en una sola frase y compare las dos respuestas. ¿Cuál le sirve sin corregir?</div>
+          <div class="se-d">Contra el pedido de una frase.</div>
         </div>
       </div>
-      <div class="strip" style="margin-top:26px;">
-        <div class="l"><strong>Ejemplo:</strong> «Comparar cotizaciones de proveedores» → 3 pasos → prompt con las 6 piezas → cuadro listo para decidir.</div>
+    </div>
+  </section>
+
+  <!-- ══ 11 · INTRODUCCIÓN A CLAUDE ══ -->
+  <section data-label="11 Introducción a Claude" id="s10a">
+    <div class="bg" style="background-image:url('assets/27305c4d-0438-4220-8cac-38d08a9cf427.jpg')"></div>
+    <div style="position:absolute; inset:0; background:radial-gradient(50% 70% at 8% 10%, rgba(18,242,128,0.14), transparent 55%);"></div>
+    <div style="position:absolute; inset:0; display:grid; grid-template-columns:560px 1fr; gap:64px; padding:84px 100px 84px 110px; align-items:center;">
+      <div>
+        <div class="label-tag dark">Parte 5 · Introducción a Claude</div>
+        <div class="title-anta dark" style="font-size:68px; line-height:1.05;">Conozca a <span style="color:var(--dark-green)">Claude</span></div>
+        <div class="body-text dark" style="font-size:27px; margin-top:22px;">Es el asistente de inteligencia artificial de <b>Anthropic</b>. Conversa en español, lee sus archivos y hace trabajos completos por usted.</div>
+        <div class="mini-steps">
+          <div class="mini-step"><span class="n">W</span><div><b>Web</b> · claude.ai</div></div>
+          <div class="mini-step"><span class="n">E</span><div><b>Escritorio</b> · Windows y Mac</div></div>
+          <div class="mini-step"><span class="n">C</span><div><b>Celular</b> · iPhone y Android</div></div>
+        </div>
+      </div>
+      <div class="cz-grid">
+        <div class="cz dark wide">
+          <div class="cz-ico"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+          <div><div class="cz-t">El chat</div><div class="cz-d">Pregúntele, pídale y adjúntele un PDF o un Excel. Todo empieza aquí.</div></div>
+        </div>
+        <div class="cz"><span class="cz-tag">Ejercicio 1</span><div class="cz-ico"><svg viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></div><div class="cz-t">Proyectos</div><div class="cz-d">Un espacio con instrucciones y memoria para un tema.</div></div>
+        <div class="cz"><span class="cz-tag">Ejercicio 2</span><div class="cz-ico"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><div class="cz-t">Skills</div><div class="cz-d">Recetas que Claude aprende una vez y usa siempre.</div></div>
+        <div class="cz"><span class="cz-tag">Ejercicio 3</span><div class="cz-ico"><svg viewBox="0 0 24 24"><path d="M12 22v-5"/><path d="M9 8V2"/><path d="M15 8V2"/><path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8z"/></svg></div><div class="cz-t">Conectores y Chrome</div><div class="cz-d">Claude se conecta con otros programas y navega internet.</div></div>
+        <div class="cz"><span class="cz-tag">Ejercicio 4</span><div class="cz-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div class="cz-t">Tareas programadas</div><div class="cz-d">Trabajos que Claude hace solo, a la hora que usted diga.</div></div>
       </div>
     </div>
   </section>
 
   <!-- ══ 10 · EJERCICIO 1 · PROYECTO PROMPTING ══ -->
-  <section data-label="11 Ejercicio 1 Proyecto Prompting" id="s10">
+  <section data-label="12 Ejercicio 1 Proyecto Prompting" id="s10">
     <div class="bg" style="background-image:url('assets/27305c4d-0438-4220-8cac-38d08a9cf427.jpg')"></div>
     <div style="position:absolute; inset:0; display:grid; grid-template-columns:1fr 960px; gap:60px; padding:80px 100px 80px 110px; align-items:center;">
       <div>
@@ -600,7 +649,7 @@
       <div class="mockup">
         <div class="mockup-bar"><i class="r"></i><i class="y"></i><i class="g"></i><span>Claude · Proyecto: Prompting</span></div>
         <div class="proj-ins">
-          <div><div class="h"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Instrucciones</div><p>Convierte lo que te pida en un prompt con 6 piezas: instrucción, contexto, rol, paso a paso, ejemplo y formato. Si falta información, pregunta.</p></div>
+          <div><div class="h"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Instrucciones</div><p>Convierte lo que te pida en un prompt con 6 piezas: rol, contexto, instrucción, paso a paso, ejemplo y formato de salida. Si falta información, pregunta.</p></div>
           <div><div class="h"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>Memoria</div><p>ILR adecúa oficinas en Bogotá. Cotiza por capítulos con AIU e IVA.</p></div>
         </div>
         <div style="background:#0c1410; padding:28px 30px; display:flex; flex-direction:column; gap:16px;">
@@ -620,7 +669,7 @@
   </section>
 
   <!-- ══ 11 · EJERCICIO 2 · SKILL COMPARAR PROVEEDORES ══ -->
-  <section data-label="12 Ejercicio 2 Skill proveedores" id="s11">
+  <section data-label="13 Ejercicio 2 Skill proveedores" id="s11">
     <div class="bg" style="background-image:url('assets/27305c4d-0438-4220-8cac-38d08a9cf427.jpg')"></div>
     <div style="position:absolute; inset:0; background:radial-gradient(45% 60% at 50% 55%, rgba(18,242,128,0.12), transparent 60%);"></div>
     <div style="position:absolute; inset:0; padding:66px 90px 60px; display:flex; flex-direction:column;">
@@ -667,13 +716,13 @@
   </section>
 
   <!-- ══ 12 · EJERCICIO 3 · CLAUDE EN CHROME ══ -->
-  <section data-label="13 Ejercicio 3 Claude en Chrome" id="s12">
+  <section data-label="14 Ejercicio 3 Claude en Chrome" id="s12">
     <div class="bg" style="background-image:url('assets/27305c4d-0438-4220-8cac-38d08a9cf427.jpg')"></div>
     <div style="position:absolute; inset:0; padding:60px 90px 56px; display:flex; flex-direction:column;">
       <div style="display:flex; align-items:flex-end; justify-content:space-between;">
         <div>
-          <div class="label-tag" style="color:var(--blue);">Ejercicio 3 · Conectar a Claude con el mundo</div>
-          <div class="title-anta dark" style="font-size:56px;">Claude sale a buscar <span style="color:var(--dark-green)">proveedores</span> por usted</div>
+          <div class="label-tag" style="color:var(--blue);">Ejercicio 3 · Conectividad</div>
+          <div class="title-anta dark" style="font-size:56px;">Claude entra a <span style="color:var(--dark-green)">Homecenter</span> y busca por usted</div>
         </div>
         <span class="demo-tag" style="margin-bottom:12px;">Datos de ejemplo</span>
       </div>
@@ -683,36 +732,36 @@
         <div class="mcp hl"><div class="i"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="21.17" y1="8" x2="12" y2="8"/><line x1="3.95" y1="6.06" x2="8.54" y2="14"/><line x1="10.88" y1="21.94" x2="15.46" y2="14"/></svg></div><div><div class="t">Claude en Chrome · hoy</div><div class="d">La vía más directa: Claude con manos en internet.</div></div></div>
       </div>
       <div class="mockup" style="margin-top:22px; flex:1; min-height:0;">
-        <div class="mockup-bar"><i class="r"></i><i class="y"></i><i class="g"></i><span>Google Maps · proveedores de drywall en Bogotá</span></div>
+        <div class="mockup-bar"><i class="r"></i><i class="y"></i><i class="g"></i><span>homecenter.com.co · lámina drywall</span></div>
         <div class="shop">
-          <div class="shop-page" style="flex-direction:row; gap:18px;">
-            <div style="flex:1; display:flex; flex-direction:column; gap:12px;">
-              <div class="shop-search" style="margin-left:0; flex:none;">proveedores de drywall y perfilería, Bogotá</div>
-              <div class="sup seen"><div class="sup-n">Proveedor 1</div><div class="sup-s">★★★★★ <b>4,8</b> · 412 reseñas</div><div class="sup-m">Ferretería · Puente Aranda · Abierto</div></div>
-              <div class="sup seen"><div class="sup-n">Proveedor 2</div><div class="sup-s">★★★★☆ <b>4,6</b> · 198 reseñas</div><div class="sup-m">Materiales de construcción · Fontibón</div></div>
-              <div class="sup"><div class="sup-n">Proveedor 3</div><div class="sup-s">★★★☆☆ <b>3,9</b> · 57 reseñas</div><div class="sup-m">Distribuidor · Kennedy</div></div>
+          <div class="shop-page">
+            <div class="shop-top"><b>Homecenter</b><div class="shop-search">lámina drywall</div></div>
+            <div class="shop-grid">
+              <div class="prod seen"><div class="ph"></div><div class="n">Lámina drywall 1/2" · 1,22 × 2,44 m</div><div class="p2">$32.900</div><div class="av">Disponible en Bogotá</div></div>
+              <div class="prod seen"><div class="ph steel"></div><div class="n">Perfil omega calibre 26 · 2,44 m</div><div class="p2">$8.900</div><div class="av">Disponible en Bogotá</div></div>
+              <div class="prod seen"><div class="ph screw"></div><div class="n">Tornillo drywall 6 × 1" · caja x100</div><div class="p2">$14.500</div><div class="av no">Solo pedido en línea</div></div>
             </div>
-            <div class="map"><i style="left:30%; top:38%;"></i><i style="left:58%; top:30%;"></i><i style="left:44%; top:66%;" class="off"></i></div>
           </div>
           <div class="side">
             <div class="side-h"><i></i>Claude</div>
-            <div class="side-step"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Busqué proveedores de drywall en Bogotá</div>
-            <div class="side-step"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Descarté los de menos de 4,5 estrellas</div>
-            <div class="side-step"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Entré a su página: entrega en obra y contacto</div>
+            <div class="side-step"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Abrí homecenter.com.co</div>
+            <div class="side-step"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Busqué los 3 materiales</div>
+            <div class="side-step"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Revisé si hay en tiendas de Bogotá</div>
             <table>
-              <tr><th>Proveedor</th><th>★</th><th>Obra</th></tr>
-              <tr><td>Proveedor 1</td><td>4,8</td><td class="g">Sí</td></tr>
-              <tr><td>Proveedor 2</td><td>4,6</td><td class="g">Sí</td></tr>
+              <tr><th>Material</th><th>Precio</th><th>Bogotá</th></tr>
+              <tr><td>Lámina drywall</td><td>$32.900</td><td class="g">Sí</td></tr>
+              <tr><td>Perfil omega</td><td>$8.900</td><td class="g">Sí</td></tr>
+              <tr><td>Tornillo x100</td><td>$14.500</td><td>En línea</td></tr>
             </table>
           </div>
         </div>
       </div>
-      <div class="note"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span><b style="color:var(--near-black);">El pedido:</b> «Busca en Google Maps proveedores de drywall y perfilería en Bogotá con más de 4,5 estrellas. Entra a su página y dime si entregan en obra, sus horarios y cómo contactarlos. Dame una tabla.»</span></div>
+      <div class="note"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span><b style="color:var(--near-black);">El pedido:</b> «Entra a homecenter.com.co y busca lámina de drywall de 1/2", perfil omega y tornillo para drywall. Dame una tabla con precio, unidad y si hay en tiendas de Bogotá, con el link de cada uno.»</span></div>
     </div>
   </section>
 
   <!-- ══ 13 · EJERCICIO 4 · CRON DE LOS LUNES ══ -->
-  <section data-label="14 Ejercicio 4 Cron de los lunes" id="s13">
+  <section data-label="15 Ejercicio 4 Cron de los lunes" id="s13">
     <div class="bg" style="background-image:url('assets/27305c4d-0438-4220-8cac-38d08a9cf427.jpg')"></div>
     <div style="position:absolute; inset:0; background:radial-gradient(50% 70% at 50% 60%, rgba(18,242,128,0.12), transparent 55%);"></div>
     <div style="position:absolute; inset:0; padding:70px 100px 64px; display:flex; flex-direction:column;">
@@ -762,7 +811,7 @@
   </section>
 
   <!-- ══ 14 · CIERRE ══ -->
-  <section data-label="15 Contacto" id="s14">
+  <section data-label="16 Contacto" id="s14">
     <div class="bg" style="background-image:url('assets/ilr-cover.jpg')"></div>
     <div style="position:absolute; inset:0; background:rgba(8,16,12,0.6);"></div>
     <div class="content" style="align-items:center; justify-content:center; text-align:center;">
